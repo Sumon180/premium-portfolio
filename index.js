@@ -465,3 +465,61 @@ if (!testimonialReducedMotion && window.matchMedia("(hover: hover)").matches) {
     });
   });
 }
+
+// ================================
+// CONTACT FORM INTERACTION
+// ================================
+
+const contactForm = document.querySelector("#contactForm");
+const contactFormStatus = document.querySelector("#contactFormStatus");
+
+// Replace with your actual email address
+const recipientEmail = "your-email@example.com";
+
+if (contactForm && contactFormStatus) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Validate form
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+
+    const name = formData.get("name").trim();
+    const email = formData.get("email").trim();
+    const subject = formData.get("subject").trim();
+    const service = formData.get("service");
+    const message = formData.get("message").trim();
+
+    // Prepare email content
+    const emailSubject = encodeURIComponent(`Portfolio Inquiry: ${subject}`);
+
+    const emailBody = encodeURIComponent(
+      `Hello Sumon,
+
+You have received a new message from your portfolio website.
+
+Name: ${name}
+Email: ${email}
+Project Type: ${service}
+
+Message:
+${message}
+
+Regards,
+${name}`,
+    );
+
+    const mailtoLink = `mailto:${recipientEmail}?subject=${emailSubject}&body=${emailBody}`;
+
+    contactFormStatus.className = "contact-form-status success";
+    contactFormStatus.textContent =
+      "Your email application should open with your message. Please review and send it there.";
+
+    // Open visitor's default email application
+    window.location.href = mailtoLink;
+  });
+}

@@ -1277,6 +1277,242 @@
           </div>
         </div>
       </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-subtitle">
+              <i class="fa-solid fa-paper-plane"></i>
+              GET IN TOUCH
+            </span>
+
+            <h2 class="section-title">
+              Let's Build Something <span class="gradient-text">Amazing</span>
+            </h2>
+
+            <p class="section-description">
+              Have an idea, a project, or an opportunity? Let's connect and turn
+              your vision into reality.
+            </p>
+          </div>
+
+          <div class="contact-container">
+            <!-- Left: Contact Information -->
+            <div class="contact-info reveal">
+              <div class="contact-intro">
+                <span class="contact-eyebrow">LET'S TALK</span>
+                <h3>Have a project in mind?</h3>
+                <p>
+                  I'm always interested in discussing new projects, creative
+                  ideas, and opportunities to build something useful.
+                </p>
+              </div>
+
+              <div class="contact-details">
+                <a
+                  href="mailto:your-email@example.com"
+                  class="contact-detail-card"
+                >
+                  <span class="contact-detail-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+
+                  <span class="contact-detail-text">
+                    <small>Email me</small>
+                    <strong>your-email@example.com</strong>
+                  </span>
+
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square contact-detail-arrow"
+                  ></i>
+                </a>
+
+                <div class="contact-detail-card">
+                  <span class="contact-detail-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </span>
+
+                  <span class="contact-detail-text">
+                    <small>Location</small>
+                    <strong>Bangladesh</strong>
+                  </span>
+                </div>
+
+                <div class="contact-detail-card">
+                  <span class="contact-detail-icon">
+                    <i class="fa-solid fa-clock"></i>
+                  </span>
+
+                  <span class="contact-detail-text">
+                    <small>Availability</small>
+                    <strong>Open to opportunities</strong>
+                  </span>
+                </div>
+              </div>
+
+              <div class="contact-social">
+                <h4>Connect with me</h4>
+
+                <div class="contact-social-links">
+                  <a
+                    href="https://github.com/your-username"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+
+                  <a
+                    href="https://linkedin.com/in/your-username"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+
+                  <a
+                    href="https://facebook.com/your-username"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+
+                  <a
+                    href="https://instagram.com/your-username"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                  >
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-decoration contact-decoration-one"></div>
+              <div class="contact-decoration contact-decoration-two"></div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="contact-form-wrapper reveal">
+              <div class="contact-form-heading">
+                <span class="contact-form-icon">
+                  <i class="fa-solid fa-message"></i>
+                </span>
+
+                <div>
+                  <h3>Send Me a Message</h3>
+                  <p>I'll be happy to hear from you.</p>
+                </div>
+              </div>
+
+              <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contactName">Your Name</label>
+                    <input
+                      type="text"
+                      id="contactName"
+                      name="name"
+                      placeholder="Enter your name"
+                      autocomplete="name"
+                      required
+                      minlength="2"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contactEmail">Email Address</label>
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      name="email"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contactSubject">Subject</label>
+                  <input
+                    type="text"
+                    id="contactSubject"
+                    name="subject"
+                    placeholder="What is this about?"
+                    required
+                    minlength="3"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="contactService">Project Type</label>
+
+                  <select id="contactService" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Custom Website Development">
+                      Custom Website Development
+                    </option>
+                    <option value="Landing Page Development">
+                      Landing Page Development
+                    </option>
+                    <option value="Frontend UI Development">
+                      Frontend UI Development
+                    </option>
+                    <option value="Firebase / Web3 Solutions">
+                      Firebase / Web3 Solutions
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="contactMessage">Your Message</label>
+                  <textarea
+                    id="contactMessage"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell me about your project..."
+                    required
+                    minlength="10"
+                  ></textarea>
+                </div>
+
+                <div class="contact-form-bottom">
+                  <p class="form-note">
+                    <i class="fa-solid fa-lock"></i>
+                    Your information is used only to respond to your inquiry.
+                  </p>
+
+                  <button type="submit" class="contact-submit-btn">
+                    <span>Send Message</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+
+                <p
+                  id="contactFormStatus"
+                  class="contact-form-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="contact-bottom reveal">
+            <span>Have a great idea?</span>
+            <span class="contact-bottom-highlight">
+              Let's make it happen. <i class="fa-solid fa-bolt"></i>
+            </span>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
