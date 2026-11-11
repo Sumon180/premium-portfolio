@@ -2854,6 +2854,12 @@ a {
   transform: rotate(45deg);
 }
 
+.project-image-overlay a iconify-icon {
+  display: block;
+  font-size: 20px;
+  color: #fff;
+}
+
 .project-content {
   padding: 25px;
 }
@@ -3152,6 +3158,23 @@ a {
   color: #00d9ff;
   background: rgba(0, 217, 255, 0.09);
   font-size: 17px;
+}
+
+.testimonial-quote-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-quote-icon iconify-icon {
+  display: block;
+  font-size: 32px;
+  color: var(--accent-cyan);
+}
+.testimonials-footer-icon iconify-icon {
+  display: block;
+  font-size: 24px;
+  color: var(--accent-cyan);
 }
 
 .testimonial-stars {
@@ -4254,4 +4277,16 @@ a {
   .footer-back-top {
     transition: none !important;
   }
+}
+
+.footer-socials a iconify-icon {
+  font-size: 22px;
+  display: block;
+  color: var(--text-secondary);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover iconify-icon {
+  color: var(--accent-cyan);
+  transform: translateY(-3px);
 }
