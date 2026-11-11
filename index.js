@@ -320,3 +320,90 @@ if (prefersReducedMotion) {
     counter.textContent = counter.dataset.target;
   });
 }
+
+/* ================================
+   SKILLS SECTION ANIMATION
+================================ */
+
+const skillSection = document.querySelector(".skills-section");
+
+if (skillSection) {
+  const skillBars = skillSection.querySelectorAll(".skill-progress");
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const animateSkills = () => {
+    skillBars.forEach((bar) => {
+      const progress = Number(bar.dataset.progress);
+
+      if (Number.isFinite(progress)) {
+        const safeProgress = Math.min(100, Math.max(0, progress));
+
+        if (reducedMotion) {
+          bar.style.width = `${safeProgress}%`;
+        } else {
+          bar.style.setProperty("--progress", `${safeProgress}%`);
+          bar.classList.add("animate");
+        }
+      }
+    });
+  };
+
+  if (reducedMotion) {
+    animateSkills();
+  } else {
+    const skillObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateSkills();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 },
+    );
+
+    skillObserver.observe(skillSection);
+  }
+}
+
+/* ================================
+   SERVICES CARD INTERACTIONS
+================================ */
+
+const serviceCards = document.querySelectorAll(".service-card");
+
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+const supportsHover = window.matchMedia(
+  "(hover: hover) and (pointer: fine)",
+).matches;
+
+if (!prefersReducedMotion && supportsHover) {
+  serviceCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * 3;
+      const rotateX = ((centerY - y) / centerY) * 3;
+
+      card.style.setProperty("--rotate-x", `${rotateX}deg`);
+      card.style.setProperty("--rotate-y", `${rotateY}deg`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rotate-x", "0deg");
+      card.style.setProperty("--rotate-y", "0deg");
+    });
+  });
+}
