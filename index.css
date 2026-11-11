@@ -56,11 +56,8 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ========================================
-   HERO SECTION
-======================================== */
-
-.hero-section {
+/* ALL SECTIONS */
+.section {
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
@@ -72,6 +69,10 @@ a {
   padding: 125px 7% 90px;
   background: var(--bg-primary);
 }
+
+/* ========================================
+   HERO SECTION
+======================================== */
 
 .hero-content {
   position: relative;
@@ -1232,14 +1233,6 @@ a {
    PREMIUM ABOUT SECTION
 ======================================== */
 
-.about-section {
-  position: relative;
-  padding: 110px 7%;
-  overflow: hidden;
-  background: #0a1020;
-  isolation: isolate;
-}
-
 .about-container {
   max-width: 1250px;
   margin: auto;
@@ -1801,14 +1794,6 @@ a {
    SKILLS SECTION
 ================================ */
 
-.skills-section {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 5% 35%, rgba(0, 217, 255, 0.045), transparent 35%),
-    radial-gradient(ellipse at 95% 75%, rgba(139, 92, 246, 0.07), transparent 35%);
-}
-
 .skills-section .container {
   position: relative;
   z-index: 1;
@@ -2276,22 +2261,6 @@ a {
    SERVICES SECTION
 ================================ */
 
-.services-section {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 0% 20%,
-      rgba(0, 217, 255, 0.045),
-      transparent 35%
-    ),
-    radial-gradient(
-      ellipse at 100% 80%,
-      rgba(139, 92, 246, 0.07),
-      transparent 35%
-    );
-}
-
 .services-section .container {
   position: relative;
   z-index: 1;
@@ -2726,11 +2695,6 @@ a {
    FEATURED PROJECTS SECTION
 ================================ */
 
-.projects-section {
-  position: relative;
-  overflow: hidden;
-}
-
 .projects-section::before {
   content: "";
   position: absolute;
@@ -3055,11 +3019,6 @@ a {
    TESTIMONIALS SECTION
 ================================ */
 
-.testimonials-section {
-  position: relative;
-  overflow: hidden;
-}
-
 .testimonials-section::before {
   content: "";
   position: absolute;
@@ -3381,11 +3340,6 @@ a {
    CONTACT SECTION
 ================================ */
 
-.contact-section {
-  position: relative;
-  overflow: hidden;
-}
-
 .contact-section::before {
   content: "";
   position: absolute;
@@ -3522,7 +3476,7 @@ a {
   border-radius: 11px;
   color: #00d9ff;
   background: rgba(0, 217, 255, 0.1);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .contact-detail-text {
@@ -3547,7 +3501,7 @@ a {
 .contact-detail-arrow {
   margin-left: auto;
   color: #8294aa;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .contact-social {
@@ -3592,6 +3546,13 @@ a {
   background: #00d9ff;
   transform: translateY(-5px);
   box-shadow: 0 7px 20px rgba(0, 217, 255, 0.2);
+}
+
+.contact-social-links a iconify-icon {
+  display: block;
+  font-size: 22px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
 }
 
 .contact-decoration {
