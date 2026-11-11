@@ -523,3 +523,30 @@ ${name}`,
     window.location.href = mailtoLink;
   });
 }
+
+// ================================
+// FOOTER FUNCTIONALITY
+// ================================
+
+// Automatically update copyright year
+const footerYear = document.querySelector("#footerYear");
+
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear();
+}
+
+// Back to top button
+const backToTop = document.querySelector("#backToTop");
+
+if (backToTop) {
+  backToTop.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  });
+}
