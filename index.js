@@ -260,3 +260,63 @@ document.addEventListener("DOMContentLoaded", () => {
     "color: #8b5cf6; font-size: 13px;",
   );
 });
+
+/* ======================================
+     10. ABOUT SECTION COUNTER ANIMATION
+  ====================================== */
+
+const counters = document.querySelectorAll(".about-section .counter");
+
+const animateCounter = (counter) => {
+  const target = Number(counter.dataset.target);
+  const duration = 1800;
+  const startTime = performance.now();
+
+  function updateCounter(currentTime) {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+
+    // Smooth ease-out animation
+    const easedProgress = 1 - Math.pow(1 - progress, 4);
+
+    const currentValue = Math.floor(easedProgress * target);
+
+    counter.textContent = currentValue;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    } else {
+      counter.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(updateCounter);
+};
+
+if (prefersReducedMotion) {
+  counters.forEach((counter) => {
+    counter.textContent = counter.dataset.target;
+  });
+} else if ("IntersectionObserver" in window) {
+  const counterObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    },
+  );
+
+  counters.forEach((counter) => {
+    counterObserver.observe(counter);
+  });
+} else {
+  counters.forEach((counter) => {
+    counter.textContent = counter.dataset.target;
+  });
+}
