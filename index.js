@@ -407,3 +407,31 @@ if (!prefersReducedMotion && supportsHover) {
     });
   });
 }
+
+// Featured Projects: 3D card tilt
+const projectCards = document.querySelectorAll(".project-card");
+const projectMotionReduced = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+if (!projectMotionReduced && window.matchMedia("(hover: hover)").matches) {
+  projectCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const rotateY = (x / rect.width - 0.5) * 5;
+      const rotateX = (0.5 - y / rect.height) * 5;
+
+      card.style.setProperty("--rotate-x", `${rotateX}deg`);
+      card.style.setProperty("--rotate-y", `${rotateY}deg`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rotate-x", "0deg");
+      card.style.setProperty("--rotate-y", "0deg");
+    });
+  });
+}
