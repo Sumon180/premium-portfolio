@@ -435,3 +435,33 @@ if (!projectMotionReduced && window.matchMedia("(hover: hover)").matches) {
     });
   });
 }
+
+// Testimonials: Interactive pointer glow
+const testimonialCards = document.querySelectorAll(".testimonial-card");
+
+const testimonialReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+if (!testimonialReducedMotion && window.matchMedia("(hover: hover)").matches) {
+  testimonialCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      card.style.background = `
+        radial-gradient(
+          circle at ${x}px ${y}px,
+          rgba(0, 217, 255, 0.09),
+          rgba(16, 24, 42, 0.85) 65%
+        )
+      `;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.background = "rgba(16, 24, 42, 0.72)";
+    });
+  });
+}
