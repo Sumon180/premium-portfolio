@@ -67,7 +67,6 @@ a {
   overflow: hidden;
   isolation: isolate;
   padding: 125px 7% 90px;
-  background: var(--bg-primary);
 }
 
 /* ========================================
@@ -1797,8 +1796,9 @@ a {
 .skills-section .container {
   position: relative;
   z-index: 1;
-  width: min(1160px, 90%);
-  margin-inline: auto;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
 }
 
 .section-header {
@@ -2264,8 +2264,9 @@ a {
 .services-section .container {
   position: relative;
   z-index: 1;
-  width: min(1160px, 90%);
-  margin-inline: auto;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
 }
 
 .services-section .section-header {
@@ -2278,7 +2279,7 @@ a {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -2723,7 +2724,7 @@ a {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
 }
 
@@ -3902,6 +3903,8 @@ a {
 .site-footer .container {
   position: relative;
   z-index: 1;
+   max-width: 1300px;
+  margin: auto;
 }
 
 .footer-glow {
