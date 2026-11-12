@@ -64,7 +64,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   isolation: isolate;
   padding: 125px 7% 90px;
 }
@@ -561,10 +561,10 @@ a {
   object-fit: cover;
   object-position: center top;
 
-  border: 5px solid #15243a;
-  border-radius: 180px 180px 25px 25px;
+  /* border: 5px solid #15243a;
+  border-radius: 180px 180px 25px 25px; */
 
-  box-shadow: 0 20px 70px rgba(0, 217, 255, 0.15);
+  /* box-shadow: 0 20px 70px rgba(0, 217, 255, 0.15); */
 }
 
 .image-overlay {
