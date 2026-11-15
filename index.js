@@ -265,10 +265,17 @@ document.addEventListener("DOMContentLoaded", () => {
      10. ABOUT SECTION COUNTER ANIMATION
   ====================================== */
 
-const counters = document.querySelectorAll(".about-section .counter");
+const counters = document.querySelectorAll(
+  ".about-section .stat-card .counter",
+);
+
+const PRMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const animateCounter = (counter) => {
   const target = Number(counter.dataset.target);
+
+  if (!Number.isFinite(target)) return;
+
   const duration = 1800;
   const startTime = performance.now();
 
@@ -292,7 +299,8 @@ const animateCounter = (counter) => {
   requestAnimationFrame(updateCounter);
 };
 
-if (prefersReducedMotion) {
+// Start counters when cards become visible
+if (PRMotion) {
   counters.forEach((counter) => {
     counter.textContent = counter.dataset.target;
   });
@@ -303,12 +311,13 @@ if (prefersReducedMotion) {
         if (entry.isIntersecting) {
           animateCounter(entry.target);
 
+          // Prevent repeated animation
           observer.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.5,
+      threshold: 0.2,
     },
   );
 
@@ -316,6 +325,7 @@ if (prefersReducedMotion) {
     counterObserver.observe(counter);
   });
 } else {
+  // Fallback for older browsers
   counters.forEach((counter) => {
     counter.textContent = counter.dataset.target;
   });
