@@ -1992,8 +1992,7 @@ a {
 }
 
 .card-icon {
-  width: 43px;
-  height: 43px;
+  padding: 3px;
   flex-shrink: 0;
   display: grid;
   place-items: center;
@@ -2011,6 +2010,9 @@ a {
 .card-icon.pink {
   color: #f472b6;
   background: rgba(244, 114, 182, 0.1);
+}
+.card-icon iconify-icon {
+  font-size: 42px;
 }
 
 .card-heading h3,
